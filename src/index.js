@@ -4,8 +4,12 @@ function eval() {
 }
 
 function expressionCalculator(expr) {
-    // write your solution here
+  var str = expr.replace(/\s/g, '')
+  var value = str.match(/(^[0-9*\/\\(\\)+-]+$)/);
+  var res = new Function('return '+ value );
+  return +res().toFixed(4);
 }
+
 
 module.exports = {
     expressionCalculator
